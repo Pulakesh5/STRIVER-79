@@ -1,5 +1,4 @@
 class Solution {
-
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         // The task of finding median of two arrays can be considered as splitting the two arrays such that the left half of both the arrays combined forms the actual left half of the merged array. If we proceed this way, we are finding a splitting index X1, X2 for nums1, nums2 respectively. 
 
@@ -16,15 +15,9 @@ class Solution {
 
         int len1 = nums1.length, len2 = nums2.length;
         
-        if(len1<len2)
-            return solve(nums1, nums2);
-        
-        return solve(nums2, nums1);
-    }
-  
-    public double solve(int[] nums1, int[] nums2)
-    {
-        int len1 = nums1.length, len2 = nums2.length;
+        if(len1>len2)
+            return findMedianSortedArrays(nums2, nums1);
+
         int totalLen = len1+len2;
         int medianLen = (totalLen+1)/2;
         
@@ -57,5 +50,4 @@ class Solution {
         }
         return -1.0;
     }
-    
 }
